@@ -1,0 +1,114 @@
+
+/* CSS RESET */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a {
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* CUSTOM PROPERTIES */
+
+
+:root {
+ --clr-borored: #d50a2e;
+ --clr-borored2: #DE1B22;
+ --clr-blue: #043b56;
+ --clr-vanilla: #F1E8B8;
+ --clr-white: #fff;
+ --clr-gold: #C8AD55;
+
+ --ff-pacifico: 'Pacifico', cursive;
+ --ff-playfair: 'Playfair Display', serif;
+ --ff-roboto-slab: 'Roboto Slab', serif;
+ --ff-russo-one: 'Russo One', sans-serif;
+ --ff-noto-sans-display: 'Noto Sans Display', sans-serif;
+}
+
+h1 {
+  font-family: var(--ff-playfair);
+}
+
+p {
+  font-family: var(--ff-pacifico);
+  color: var(--clr-borored);
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  font-family: var(--ff-noto-sans-display);
+}
+
+.intro {
+  outline: 1px solid green;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
