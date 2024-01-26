@@ -94,6 +94,13 @@ p {
   color: var(--clr-borored);
 }
 
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 1rem;
+}
+
 
 body {
   display: flex;
@@ -103,6 +110,12 @@ body {
   min-height: 100vh;
   padding: 1rem;
   font-family: var(--ff-noto-sans-display);
+  text-align: center;
+  background-color: var(--clr-blue);
+}
+
+.main {
+  max-width: 50rem;
 }
 
 .intro {
@@ -111,4 +124,21 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+}
+
+.card {
+  background-color: var(--clr-white);
+  border-radius: 20px;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+}
+
+.card__image {
+  overflow: hidden;
+  grid-row: 1 / 2;
+}
+
+.card__image__img {
+  border-radius: 20px;
+  height: 100%;
 }
