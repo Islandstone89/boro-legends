@@ -19,11 +19,12 @@ html {
 body, h1, h2, h3, h4, p,
 figure, blockquote, dl, dd {
   margin: 0;
+  padding: 0;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
+ul,
+ol {
   list-style: none;
 }
 
@@ -41,7 +42,7 @@ h3, h4 {
 
 /* A elements that don't have a class get default styles */
 a {
-  color: currentColor;
+  color: inherit;
 }
 
 /* Make images easier to work with */
@@ -67,6 +68,7 @@ textarea:not([rows]) {
   scroll-margin-block: 5ex;
 }
 
+
 /* CUSTOM PROPERTIES */
 
 
@@ -77,6 +79,13 @@ textarea:not([rows]) {
  --clr-vanilla: #F1E8B8;
  --clr-white: #fff;
  --clr-gold: #C8AD55;
+ 
+ --clr-darkblue: #004B75;
+ --clr-lightblue: #7BB0E0;
+ --clr-beige: #F3EED9;
+ --clr-lightred: #FF6968;
+
+
 
  --ff-pacifico: 'Pacifico', cursive;
  --ff-playfair: 'Playfair Display', serif;
@@ -85,22 +94,32 @@ textarea:not([rows]) {
  --ff-noto-sans-display: 'Noto Sans Display', sans-serif;
 }
 
-h1 {
-  font-family: var(--ff-playfair);
-}
 
-p {
-  font-family: var(--ff-pacifico);
-  color: var(--clr-borored);
+/* UTILITIES */
+
+.flow > * + * {
+  --flow-space: 4em;
+  margin-top: var(--flow-space);
 }
 
 .wrapper {
+  --flow-space: 2em;
+  --auto-grid-min-size: 12rem;
+  
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--auto-grid-min-size), 100%), 1fr));
+  gap: 4rem 2rem;
 }
 
+/* COMPONENTS */
+
+.section__heading {
+  color: var(--clr-beige);
+  text-transform: uppercase;
+}
+
+
+/* GENERAL STYLING */
 
 body {
   display: flex;
@@ -111,34 +130,77 @@ body {
   padding: 1rem;
   font-family: var(--ff-noto-sans-display);
   text-align: center;
-  background-color: var(--clr-blue);
+  background-color: var(--clr-darkblue);
 }
 
 .main {
   max-width: 50rem;
+  padding: 2rem;
 }
 
-.intro {
-  outline: 1px solid green;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+.main-heading {
+  font-family: var(--ff-playfair);
+  color: var(--clr-beige);
 }
+
+.tagline {
+  font-family: var(--ff-pacifico);
+  color: var(--clr-borored);
+  --flow-space: .5em;
+}
+
+/* INTRO */
+
+
+
+.intro__images {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  --flow-space: 2em;
+}
+
+.intro__image {
+  width: 10%;
+}
+
+/* CARDS */
 
 .card {
   background-color: var(--clr-white);
   border-radius: 20px;
+  box-shadow: 2px 2px 5px 3px rgba(255, 255, 255, 1);
   display: grid;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
 }
 
 .card__image {
   overflow: hidden;
-  grid-row: 1 / 2;
+  grid-row: 1 / 3;
 }
 
 .card__image__img {
   border-radius: 20px;
   height: 100%;
+  object-fit: cover;
 }
+
+.card__text {
+  grid-row: 3 / 4;
+  --flow-space: 1em;
+  padding-inline: 1rem;
+}
+
+.card__text__paragraph {
+  --flow-space: .5em;
+}
+
+
+/* FOOTER */
+
+.footer__link {
+  color: var(--clr-beige);
+}
+
+/* Media queries */
+
